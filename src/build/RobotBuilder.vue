@@ -96,7 +96,7 @@ export default {
   },
   computed: {
     availableParts() {
-      return this.$store.state.parts;
+      return this.$store.state.robots.parts;
     },
     saleBorderClass() {
       return this.selectedRobot.head.onSale ? 'sale-border' : '';
@@ -112,7 +112,9 @@ export default {
         + robot.rightArm.cost
         + robot.base.cost;
 
-      this.$store.commit('addRobotToCart', { ...robot, cost });
+      this.$store
+        .dispatch('addRobotToCart', { ...robot, cost })
+        .then(() => this.$router.push('/cart'));
       this.addedToCart = true;
     },
   },
