@@ -11,7 +11,7 @@
       <tbody>
         <tr v-for="(robot, index) in cart" :key="index">
           <td class="robot-title">{{robot.head.title}}</td>
-          <td class="cost">{{robot.cost}}</td>
+          <td class="cost">{{robot.cost | currency('$')}}</td>
         </tr>
       </tbody>
     </table>
@@ -26,7 +26,7 @@
       <tbody>
         <tr v-for="(robot, index) in cartSaleItems" :key="index">
           <td class="robot-title">{{robot.head.title}}</td>
-          <td class="cost">{{robot.cost}}</td>
+          <td class="cost">{{robot.cost | currency('$')}}</td>
         </tr>
       </tbody>
     </table>

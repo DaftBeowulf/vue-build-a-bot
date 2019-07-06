@@ -13,7 +13,12 @@
     </router-link>
     <button @click="selectPrevPart()" class="prev-selector"></button>
     <button @click="selectNextPart()" class="next-selector"></button>
-    <span class="sale" v-show="selectedPart.onSale">Sale!</span>
+    <span
+      @click="pinPadding='30px'"
+      v-pin="{bottom: pinPadding, right:pinPadding}"
+      class="sale"
+      v-show="selectedPart.onSale"
+    >Sale!</span>
   </div>
 </template>
 
@@ -40,7 +45,7 @@ export default {
     },
   },
   data() {
-    return { selectedPartIndex: 0 };
+    return { selectedPartIndex: 0, pinPadding: '10px' };
   },
   computed: {
     selectedPart() {
@@ -81,9 +86,6 @@ export default {
   border: 3px solid #aaa;
 }
 .sale {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
   color: white;
   background-color: red;
   padding: 3px;
